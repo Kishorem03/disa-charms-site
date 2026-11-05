@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+collections:
+  - name: "products"
+    label: "DISA CHARMS Showcase Products"
+    folder: "src/data/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product ID / SKU", name: "id", widget: "string" }
+      - { label: "Product Name", name: "name", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Main Studs"
+          - "Second Studs"
+          - "Rings"
+          - "Ear Cuffs"
+          - "Regular Wear Kada"
+          - "Party Wear Kada"
+          - "Charms"
+          - "Regular Wear Chains"
+          - "Hair Veins"
+          - "Anklets"
+          - "Hair Accessories"
+          - "Nose Pins – Piercing & Non-Piercing"
+      - { label: "Material", name: "material", widget: "string", default: "316L Grade Stainless Steel • Anti-Tarnish" }
+      - { label: "Sizes / Variants", name: "sizes", widget: "list" }
+      - { label: "Product Images (Multi-Image Gallery)", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image" } }
+      - { label: "Description", name: "description", widget: "text" }
