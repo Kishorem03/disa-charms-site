@@ -108,7 +108,7 @@ const JSONBIN_API_KEY = localStorage.getItem("disa_jsonbin_api_key") || "$2a$10$
 
 // Asynchronous Cloud Fetch
 async function getProducts() {
-  if (!JSONBIN_BIN_ID || JSONBIN_BIN_ID === "6aeda096ffd5d16053ab7384") {
+  if (!JSONBIN_BIN_ID || JSONBIN_BIN_ID === "YOUR_BIN_ID_HERE") {
     const saved = localStorage.getItem("disa_charms_products");
     if (saved) {
       try { return JSON.parse(saved); } catch (e) {}
