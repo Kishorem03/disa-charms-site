@@ -3,85 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Portal | DISA CHARMS</title>
+  <title>Client Portal | DISA CHARMS — 316L Stainless Steel & Anti-Tarnish Jewellery</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons (Argon Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Tailwind CSS Utility Engine + Argon Custom Theme -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
-  </style>
+  <link rel="stylesheet" href="assets/css/argon-disa.css" />
 </head>
-<body class="bg-[#FAF7F2] text-gray-900 min-h-screen flex flex-col">
+<body>
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#4A1525] text-[#E6C88A] text-xs py-2 px-4 text-center font-medium tracking-wide">
+    <span>✨ 100% 316L Grade Stainless Steel & Anti-Tarnish Jewellery • Visit Us at Perundurai Rd, Near Zudio, Opp. Westside, Erode ✨</span>
+  </div>
 
-  <!-- Top Navbar -->
-  <header class="bg-[#4A0E17] text-[#FAF7F2] border-b border-[#D4AF37]/30 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- Argon Sticky Glass Navbar -->
+  <header class="argon-navbar sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <span class="serif text-2xl font-bold tracking-wider text-[#D4AF37]">DISA CHARMS</span>
-        <span class="text-[11px] uppercase tracking-widest bg-[#D4AF37]/20 text-[#D4AF37] px-2.5 py-0.5 rounded-full border border-[#D4AF37]/40">Client Portal</span>
+        <img src="assets/images/logo.jpg" alt="DISA CHARMS Logo" class="w-12 h-12 rounded-full object-cover border-2 border-[#C5A059] shadow-sm" />
+        <div>
+          <span class="text-2xl font-serif-luxury font-bold tracking-wider text-[#4A1525] block leading-none">DISA CHARMS</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#C5A059] font-semibold">316L Anti-Tarnish Studio</span>
+        </div>
       </a>
-      <nav class="flex items-center gap-5 text-xs font-medium">
-        <a href="index.html" class="hover:text-[#D4AF37] transition">Home</a>
-        <a href="catalog.html" class="hover:text-[#D4AF37] transition">Live Catalog</a>
-        <button id="logout-btn" class="hidden bg-red-800/80 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg transition">Logout</button>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#1E1B18]">
+        <a href="index.html" class="hover:text-[#4A1525] transition-colors">Home</a>
+        <a href="catalog.html" class="hover:text-[#4A1525] transition-colors">Collections (12)</a>
+        <a href="about.html" class="hover:text-[#4A1525] transition-colors">316L Anti-Tarnish Craft</a>
+        <a href="contact.html" class="hover:text-[#4A1525] transition-colors">Visit Erode Store</a>
       </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="admin.html" class="px-3.5 py-2 rounded-xl border border-[#C5A059]/50 text-xs font-semibold text-[#4A1525] hover:bg-[#4A1525] hover:text-white transition-all flex items-center gap-1.5">
+          <i class="fas fa-user-shield"></i>
+          <span>Client Portal</span>
+        </a>
+        <a href="https://www.instagram.com/disa.charms?rpxt=ZnkwNjRoczQ5dGN6" target="_blank" rel="noopener"
+          class="w-9 h-9 rounded-xl bg-[#FAF7F2] border border-[#C5A059]/40 flex items-center justify-center text-[#4A1525] hover:bg-[#4A1525] hover:text-white transition-all" title="Follow on Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Mobile Quick Nav -->
+    <div class="md:hidden flex items-center justify-around border-t border-[#C5A059]/20 py-2 bg-[#FAF7F2] text-xs font-semibold text-[#4A1525]">
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="about.html">316L Craft</a>
+      <a href="contact.html">Store Map</a>
+      <a href="admin.html">Admin</a>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-10">
-
-    <!-- Login View -->
-    <section id="login-section" class="max-w-md mx-auto bg-white rounded-2xl shadow-lg border border-[#D4AF37]/30 p-8 mt-8">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Login Card -->
+    <div id="admin-login-box" class="max-w-md mx-auto argon-card p-8">
       <div class="text-center mb-6">
-        <h1 class="serif text-3xl font-bold text-[#4A0E17]">Client Portal Login</h1>
-        <p class="text-xs text-gray-500 mt-1">Manage your 316L Anti-Tarnish Jewellery Showcase</p>
+        <img src="assets/images/logo.jpg" alt="DISA CHARMS" class="w-16 h-16 rounded-full mx-auto border-2 border-[#C5A059] mb-3 object-cover" />
+        <h1 class="text-2xl font-serif-luxury font-bold text-[#4A1525]">DISA CHARMS Client Portal</h1>
+        <p class="text-xs text-gray-500 mt-1">Sign in to upload multi-image products, select categories, badges & sizes</p>
       </div>
-
       <form id="login-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-gray-700 mb-1">User ID</label>
-          <input id="admin-user" type="text" value="disa.charms" placeholder="Enter User ID" required
-            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs focus:outline-none focus:border-[#4A0E17]" />
+          <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Username</label>
+          <input id="admin-user" type="text" value="disa.charms" required
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A1525]" />
         </div>
         <div>
-          <label class="block text-xs font-semibold text-gray-700 mb-1">Password</label>
-          <input id="admin-pass" type="password" value="disa2025" placeholder="Enter Password" required
-            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs focus:outline-none focus:border-[#4A0E17]" />
+          <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Password</label>
+          <input id="admin-pass" type="password" value="disa2025" required
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#4A1525]" />
         </div>
         <p id="login-error" class="text-xs text-red-600 hidden">Invalid credentials. Please use your assigned DISA CHARMS client login.</p>
-        <button type="submit"
-          class="w-full bg-[#4A0E17] hover:bg-[#380a11] text-[#D4AF37] font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md">
-          Access Upload Portal
+        <button type="submit" class="w-full py-3 rounded-xl btn-argon-burgundy text-sm font-semibold">
+          Sign In to Argon Manager
         </button>
       </form>
-    </section>
+    </div>
 
-    <!-- Dashboard View -->
-    <section id="dashboard-section" class="hidden space-y-8">
-      
+    <!-- Authenticated Client Portal Workspace -->
+    <div id="admin-dashboard-box" class="hidden space-y-8">
+      <!-- Top Bar -->
+      <div class="argon-card p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#4A1525] text-white">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-[#E6C88A] font-semibold">Argon Catalog Manager</span>
+          <h2 class="text-2xl font-serif-luxury font-bold">Add / Manage Showcase Products</h2>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-xl">
+            <i class="fab fa-whatsapp text-[#25D366]"></i>
+            <input id="wa-phone-input" type="text" placeholder="919876543210"
+              class="bg-transparent text-xs text-white focus:outline-none w-32" />
+            <button onclick="saveStorePhone()" class="text-[11px] bg-[#C5A059] text-white px-2.5 py-1 rounded-lg font-semibold">Save WA#</button>
+          </div>
+          <a href="catalog.html" class="px-4 py-2 rounded-xl btn-argon-gold text-xs font-semibold">View Live Catalog</a>
+          <button id="logout-btn" type="button" class="px-3 py-2 rounded-xl bg-red-800/80 hover:bg-red-700 text-white text-xs font-semibold transition">Logout</button>
+        </div>
+      </div>
+
       <!-- ImgBB API Setup Banner -->
       <div class="bg-amber-50 border border-amber-300 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 class="text-xs font-bold text-amber-900 uppercase tracking-wider">ImgBB Cloud Image Hosting Enabled</h2>
-          <p class="text-xs text-amber-800 mt-0.5">Uploaded photos are hosted on ImgBB CDN so your browser storage never overflows.</p>
+          <h3 class="text-xs font-bold text-amber-900 uppercase tracking-wider"><i class="fas fa-cloud mr-1"></i> ImgBB Cloud Image Hosting</h3>
+          <p class="text-xs text-amber-800 mt-0.5">Uploaded photos are hosted on ImgBB CDN (with automatic compression fallback) so your catalog never hits browser storage limits.</p>
         </div>
         <div class="flex items-center gap-2">
           <input id="imgbb-key-input" type="text" placeholder="Paste ImgBB API Key here"
             class="px-3 py-1.5 rounded-lg border border-amber-400 text-xs bg-white w-56 font-mono" />
           <button id="save-api-key-btn" type="button"
-            class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition">
+            class="bg-[#4A1525] hover:bg-[#2E0B16] text-[#E6C88A] text-xs font-semibold px-3 py-1.5 rounded-lg transition">
             Save Key
           </button>
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <!-- Add New Product Form -->
-        <div class="lg:col-span-5 bg-white rounded-2xl shadow-md border border-gray-200 p-6">
-          <h2 class="serif text-2xl font-bold text-[#4A0E17] mb-1">Add New Jewellery Piece</h2>
-          <p class="text-xs text-gray-500 mb-5">Upload up to 5 photos via ImgBB and publish to catalog.</p>
-
+        <!-- Left Form: Category, Badge, Sizes, Product Info & Multi-Image Upload -->
+        <div class="lg:col-span-6 argon-card p-6 space-y-4">
+          <h3 class="text-xl font-serif-luxury font-bold text-[#4A1525] border-b pb-2">Upload New Showcase Piece</h3>
           <form id="add-product-form" class="space-y-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -108,65 +151,166 @@
                   <option>Party Wear Kada</option>
                   <option>Charms</option>
                   <option selected>Regular Wear Chains</option>
-                  <option>Pendant Chains</option>
-                  <option>Layered Chains</option>
-                  <option>Bracelets</option>
+                  <option>Hair Veins</option>
                   <option>Anklets</option>
+                  <option>Hair Accessories</option>
+                  <option>Nose Pins – Piercing & Non-Piercing</option>
                 </select>
               </div>
               <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Highlight Tag / Badge *</label>
+                <select id="p-badge" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs bg-white font-semibold text-[#4A1525]">
+                  <option value="New Arrival" selected>✨ New Arrival</option>
+                  <option value="Best Deal">🔥 Best Deal</option>
+                  <option value="Bestseller">⭐ Bestseller</option>
+                  <option value="Trending">💎 Trending</option>
+                  <option value="Limited Edition">👑 Limited Edition</option>
+                  <option value="Restocked">🔔 Restocked</option>
+                  <option value="Signature">⚜️ Signature</option>
+                  <option value="Festive Special">🎉 Festive Special</option>
+                  <option value="Custom">✏️ Custom Tag (Type below)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Optional Custom Badge Input (shown when Custom is selected) -->
+            <div id="custom-badge-wrapper" class="hidden">
+              <label class="block text-xs font-semibold text-gray-700 mb-1">Custom Highlight Tag Text</label>
+              <input id="p-badge-custom" type="text" placeholder="e.g. Buy 1 Get 1, Flat 20% Off, Bridal Pick"
+                class="w-full px-3 py-2 rounded-xl border border-[#C5A059] text-xs bg-[#FAF7F2]" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1">Sizes / Variants (Comma separated)</label>
+                <input id="p-sizes" type="text" placeholder="e.g. 16 inch, 18 inch, 2.4 Kada" value="Standard, Adjustable"
+                  class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs" />
+              </div>
+              <div>
                 <label class="block text-xs font-semibold text-gray-700 mb-1">Material Specification</label>
-                <input id="p-material" type="text" value="316L Grade Stainless Steel • 18K Gold Plated"
+                <input id="p-material" type="text" value="316L Grade Stainless Steel • Anti-Tarnish"
                   class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs" />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-gray-700 mb-1">Available Sizes (comma-separated)</label>
-              <input id="p-sizes" type="text" value="Standard, Adjustable" placeholder="e.g. 16 inch, 18 inch, Adjustable"
-                class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs" />
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-gray-700 mb-1">Short Luxury Description</label>
-              <textarea id="p-desc" rows="3" placeholder="Describe anti-tarnish finish, waterproof quality, and styling details..."
+              <label class="block text-xs font-semibold text-gray-700 mb-1">Short Description</label>
+              <textarea id="p-desc" rows="2" placeholder="Describe finish, stones, waterproof quality, and styling details..."
                 class="w-full px-3 py-2 rounded-xl border border-gray-300 text-xs"></textarea>
             </div>
 
+            <!-- Multi-Image Upload Dropzone -->
             <div>
-              <label class="block text-xs font-semibold text-gray-700 mb-1">Product Images (Up to 5 Photos) *</label>
-              <input id="p-images" type="file" accept="image/*" multiple
-                class="w-full text-xs text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#4A0E17] file:text-[#D4AF37] hover:file:bg-[#380a11] cursor-pointer" />
-              <p id="upload-status" class="text-[11px] text-gray-500 mt-1">Select images to automatically upload to ImgBB CDN.</p>
-              <div id="upload-preview-row" class="flex flex-wrap gap-2 mt-3"></div>
+              <label class="block text-xs font-semibold text-gray-700 mb-1">Upload Multiple Product Images (Up to 5 angles) *</label>
+              <div class="border-2 border-dashed border-[#C5A059] rounded-xl p-4 text-center bg-[#FAF7F2]">
+                <input id="p-images" type="file" accept="image/*" multiple class="text-xs w-full cursor-pointer" />
+                <p id="upload-status" class="text-[11px] text-gray-500 mt-1">Select 1 to 5 images. The first image becomes the primary cover photo.</p>
+              </div>
+              <div id="upload-preview-row" class="flex items-center gap-2 mt-3 overflow-x-auto"></div>
             </div>
 
-            <button id="publish-btn" type="submit"
-              class="w-full bg-[#4A0E17] hover:bg-[#380a11] text-[#D4AF37] font-semibold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-md">
-              Publish Piece to Showcase Website
+            <button id="publish-btn" type="submit" class="w-full py-3 rounded-xl btn-argon-gold text-xs font-bold uppercase tracking-wider">
+              <i class="fas fa-cloud-arrow-up mr-1"></i> Publish Piece to Showcase Website
             </button>
           </form>
         </div>
 
-        <!-- Inventory List -->
-        <div class="lg:col-span-7 bg-white rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col">
-          <div class="flex items-center justify-between mb-4">
+        <!-- Right Panel: Existing Products List with Delete & Reset -->
+        <div class="lg:col-span-6 argon-card p-6 space-y-4">
+          <div class="flex items-center justify-between border-b pb-2">
             <div>
-              <h2 class="serif text-2xl font-bold text-[#4A0E17]">Published Showcase Inventory</h2>
-              <p class="text-xs text-gray-500">Items currently visible in your browser catalog (<span id="inventory-count">0</span> pieces)</p>
+              <h3 class="text-xl font-serif-luxury font-bold text-[#4A1525]">Current Showcase Items (<span id="inventory-count">0</span>)</h3>
+              <p class="text-[11px] text-gray-500">Synced directly with your Home & Catalog pages</p>
             </div>
-            <button id="reset-catalog-btn" type="button"
-              class="text-xs text-red-700 hover:underline font-medium">
-              Reset to Default Demo Items
-            </button>
+            <button onclick="resetDefaultCatalog()" class="text-[11px] text-gray-500 hover:text-red-600 underline">Reset Default Demo Items</button>
           </div>
-
-          <div id="admin-product-list" class="space-y-3 overflow-y-auto max-h-[540px] pr-1"></div>
+          <div id="admin-product-list" class="space-y-3 max-h-[560px] overflow-y-auto pr-1"></div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- Argon Footer -->
+  <footer class="bg-[#2E0B16] text-[#FAF7F2] pt-14 pb-10 mt-20 border-t-4 border-[#C5A059]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/images/logo.jpg" alt="DISA CHARMS" class="w-12 h-12 rounded-full object-cover border border-[#C5A059]" />
+          <div>
+            <h4 class="text-xl font-serif-luxury font-bold text-[#E6C88A]">DISA CHARMS</h4>
+            <p class="text-[11px] text-gray-300">Jewellery & Accessories</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+          Premium 316L Grade Stainless Steel & Anti-Tarnish jewellery crafted for everyday elegance, waterproof durability, and skin-safe luxury.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/disa.charms?rpxt=ZnkwNjRoczQ5dGN6" target="_blank" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#C5A059] text-xs flex items-center gap-1.5 transition-all">
+            <i class="fab fa-instagram"></i> @disa.charms
+          </a>
+          <a href="https://maps.app.goo.gl/pZZwRFHhhcD2ueej9?g_st=ac" target="_blank" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#C5A059] text-xs flex items-center gap-1.5 transition-all">
+            <i class="fas fa-location-dot"></i> Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="text-sm font-semibold uppercase tracking-wider text-[#E6C88A] mb-3">Our 12 Collections</h5>
+        <ul class="text-xs space-y-2 text-gray-300 grid grid-cols-2 gap-x-2">
+          <li><a href="catalog.html?cat=Main%20Studs" class="hover:text-[#E6C88A]">• Main Studs</a></li>
+          <li><a href="catalog.html?cat=Second%20Studs" class="hover:text-[#E6C88A]">• Second Studs</a></li>
+          <li><a href="catalog.html?cat=Rings" class="hover:text-[#E6C88A]">• Rings</a></li>
+          <li><a href="catalog.html?cat=Ear%20Cuffs" class="hover:text-[#E6C88A]">• Ear Cuffs</a></li>
+          <li><a href="catalog.html?cat=Regular%20Wear%20Kada" class="hover:text-[#E6C88A]">• Regular Kada</a></li>
+          <li><a href="catalog.html?cat=Party%20Wear%20Kada" class="hover:text-[#E6C88A]">• Party Kada</a></li>
+          <li><a href="catalog.html?cat=Charms" class="hover:text-[#E6C88A]">• Charms</a></li>
+          <li><a href="catalog.html?cat=Regular%20Wear%20Chains" class="hover:text-[#E6C88A]">• Chains</a></li>
+          <li><a href="catalog.html?cat=Hair%20Veins" class="hover:text-[#E6C88A]">• Hair Veins</a></li>
+          <li><a href="catalog.html?cat=Anklets" class="hover:text-[#E6C88A]">• Anklets</a></li>
+          <li><a href="catalog.html?cat=Hair%20Accessories" class="hover:text-[#E6C88A]">• Hair Acc.</a></li>
+          <li><a href="catalog.html?cat=Nose%20Pins%20%E2%80%93%20Piercing%20%26%20Non-Piercing" class="hover:text-[#E6C88A]">• Nose Pins</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-sm font-semibold uppercase tracking-wider text-[#E6C88A] mb-3">Quick Links</h5>
+        <ul class="text-xs space-y-2.5 text-gray-300">
+          <li><a href="index.html" class="hover:text-white">Home Showcase</a></li>
+          <li><a href="catalog.html" class="hover:text-white">Full Product Catalog</a></li>
+          <li><a href="about.html" class="hover:text-white">Why 316L Anti-Tarnish?</a></li>
+          <li><a href="contact.html" class="hover:text-white">Showroom Location</a></li>
+          <li><a href="admin.html" class="hover:text-white">Client Image Upload Portal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-sm font-semibold uppercase tracking-wider text-[#E6C88A] mb-3">Visit Our Erode Store</h5>
+        <p class="text-xs text-gray-300 leading-relaxed mb-3">
+          <i class="fas fa-map-pin text-[#C5A059] mr-1"></i>
+          K M K Nagar, Perundurai Rd, Near Zudio, Opposite to Westside, Erode, Tamil Nadu.
+        </p>
+        <a href="https://maps.app.goo.gl/pZZwRFHhhcD2ueej9?g_st=ac" target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl btn-argon-gold text-xs font-semibold">
+          <i class="fas fa-directions"></i> Get Directions
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400">
+      <p>© 2026 DISA CHARMS (Erode). Built with Argon Design System.</p>
+      <p>Material Guarantee: 316L Grade Stainless Steel • 100% Anti-Tarnish</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a id="global-wa-float" href="https://wa.me/919876543210?text=Hello%20DISA%20CHARMS!%20I%20would%20like%20to%20enquire%20about%20your%20316L%20Anti-Tarnish%20collections."
+    target="_blank" rel="noopener noreferrer" class="floating-wa-btn">
+    <i class="fab fa-whatsapp text-xl"></i>
+    <span class="text-xs font-bold tracking-wide">Chat on WhatsApp</span>
+  </a>
+
+  <!-- Shared App Engine (Uses exact "disa_charms_products" key used by catalog.html & index.html) -->
+  <script src="assets/js/app.js"></script>
   <script>
     // ============================================================================
     // STEP 1: PASTE YOUR IMGBB API KEY BELOW (Or enter it directly in the top bar)
@@ -174,37 +318,35 @@
     // ============================================================================
     let IMGBB_API_KEY = localStorage.getItem("disa_imgbb_api_key") || "392f1a5408439784428aa1a376e64e56";
 
-    const STORAGE_KEY = "disa_charms_products_v1";
     let stagedImagesUrls = [];
     let isUploading = false;
 
-    const DEFAULT_PRODUCTS = [
-      {
-        id: "DC-1001",
-        name: "Royal Tulip Pendant Necklace",
-        category: "Pendant Chains",
-        material: "316L Grade Stainless Steel • 18K Gold Plated",
-        sizes: ["16 inch", "18 inch (Adjustable)"],
-        badge: "Bestseller",
-        description: "Waterproof, sweat-proof, and anti-tarnish 316L stainless steel tulip motif pendant.",
-        images: ["assets/images/tulip-necklace-1.webp"]
-      }
-    ];
-
-    function getProducts() {
+    // Auto-migrate any items accidentally saved to "disa_charms_products_v1" into "disa_charms_products"
+    (function migrateLegacyStorage() {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return DEFAULT_PRODUCTS;
-        const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) && parsed.length ? parsed : DEFAULT_PRODUCTS;
+        const v1Raw = localStorage.getItem("disa_charms_products_v1");
+        if (v1Raw) {
+          const v1List = JSON.parse(v1Raw);
+          if (Array.isArray(v1List) && v1List.length > 0) {
+            const current = getProducts();
+            const existingIds = new Set(current.map(p => p.id));
+            let added = false;
+            v1List.forEach(item => {
+              if (item && item.id && !existingIds.has(item.id)) {
+                current.unshift(item);
+                added = true;
+              }
+            });
+            if (added) {
+              saveProducts(current);
+            }
+          }
+          localStorage.removeItem("disa_charms_products_v1");
+        }
       } catch (e) {
-        return DEFAULT_PRODUCTS;
+        console.warn("Storage migration skipped:", e);
       }
-    }
-
-    function saveProducts(list) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-    }
+    })();
 
     // Initialize API Key Input Field
     const apiKeyInput = document.getElementById("imgbb-key-input");
@@ -220,23 +362,31 @@
       }
       IMGBB_API_KEY = val;
       localStorage.setItem("disa_imgbb_api_key", val);
-      alert("ImgBB API Key saved successfully! You can now upload high-resolution product images.");
+      alert("ImgBB API Key saved! Your uploaded photos will now be hosted on ImgBB CDN.");
     });
 
-    // Login Handler
-    const loginSection = document.getElementById("login-section");
-    const dashboardSection = document.getElementById("dashboard-section");
-    const logoutBtn = document.getElementById("logout-btn");
+    // Show/Hide Custom Badge Text Input
+    const badgeSelect = document.getElementById("p-badge");
+    const customBadgeWrapper = document.getElementById("custom-badge-wrapper");
+    badgeSelect.addEventListener("change", () => {
+      if (badgeSelect.value === "Custom") {
+        customBadgeWrapper.classList.remove("hidden");
+        document.getElementById("p-badge-custom").focus();
+      } else {
+        customBadgeWrapper.classList.add("hidden");
+      }
+    });
 
-    function showDashboard() {
-      loginSection.classList.add("hidden");
-      dashboardSection.classList.remove("hidden");
-      logoutBtn.classList.remove("hidden");
+    // Login & Session Handling
+    function openDashboard() {
+      document.getElementById("admin-login-box").classList.add("hidden");
+      document.getElementById("admin-dashboard-box").classList.remove("hidden");
+      document.getElementById("wa-phone-input").value = getWhatsAppNumber();
       renderAdminList();
     }
 
     if (sessionStorage.getItem("disa_admin_logged_in") === "true") {
-      showDashboard();
+      openDashboard();
     }
 
     document.getElementById("login-form").addEventListener("submit", (e) => {
@@ -246,13 +396,13 @@
       if (u === "disa.charms" && p === "disa2025") {
         sessionStorage.setItem("disa_admin_logged_in", "true");
         document.getElementById("login-error").classList.add("hidden");
-        showDashboard();
+        openDashboard();
       } else {
         document.getElementById("login-error").classList.remove("hidden");
       }
     });
 
-    logoutBtn.addEventListener("click", () => {
+    document.getElementById("logout-btn").addEventListener("click", () => {
       sessionStorage.removeItem("disa_admin_logged_in");
       location.reload();
     });
@@ -271,7 +421,7 @@
             canvas.height = img.height * scale;
             const ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            resolve(canvas.toDataURL("image/jpeg", 0.7));
+            resolve(canvas.toDataURL("image/jpeg", 0.75));
           };
           img.src = event.target.result;
         };
@@ -279,7 +429,7 @@
       });
     }
 
-    // ImgBB Upload Listener
+    // Multi-Image Upload Listener (ImgBB + Automatic Compression Fallback)
     document.getElementById("p-images").addEventListener("change", async (e) => {
       const files = Array.from(e.target.files).slice(0, 5);
       const previewRow = document.getElementById("upload-preview-row");
@@ -311,10 +461,12 @@
               body: formData
             });
             const data = await res.json();
-            if (data.success) {
+            if (data && data.success && data.data && data.data.display_url) {
+              stagedImagesUrls.push(data.data.display_url);
+            } else if (data && data.success && data.data && data.data.url) {
               stagedImagesUrls.push(data.data.url);
             } else {
-              console.warn("ImgBB error, using compressed fallback:", data);
+              console.warn("ImgBB fallback to local compression:", data);
               const compressed = await compressImageFallback(file);
               stagedImagesUrls.push(compressed);
             }
@@ -324,15 +476,17 @@
             stagedImagesUrls.push(compressed);
           }
         } else {
-          // Automatic compressed fallback if API key is not entered yet
           const compressed = await compressImageFallback(file);
           stagedImagesUrls.push(compressed);
         }
       }
 
-      previewRow.innerHTML = stagedImagesUrls
-        .map(url => `<img src="${url}" class="w-16 h-16 object-cover rounded-lg border border-[#D4AF37]" />`)
-        .join("");
+      previewRow.innerHTML = stagedImagesUrls.map((url, idx) => `
+        <div class="relative w-14 h-14 rounded-lg overflow-hidden border-2 border-[#C5A059] flex-shrink-0">
+          <img src="${url}" class="w-full h-full object-cover" />
+          <span class="absolute bottom-0 inset-x-0 bg-black/70 text-white text-[9px] text-center">${idx === 0 ? 'Primary' : '#' + (idx + 1)}</span>
+        </div>
+      `).join("");
 
       statusText.textContent = `✔ ${stagedImagesUrls.length} photo(s) ready to publish!`;
       statusText.className = "text-[11px] text-emerald-700 font-semibold mt-1";
@@ -345,7 +499,7 @@
     document.getElementById("add-product-form").addEventListener("submit", (e) => {
       e.preventDefault();
       if (isUploading) {
-        alert("Please wait a moment for the images to finish uploading.");
+        alert("Please wait a moment for your images to finish uploading.");
         return;
       }
 
@@ -356,6 +510,11 @@
       const material = document.getElementById("p-material").value.trim();
       const description = document.getElementById("p-desc").value.trim();
 
+      let selectedBadge = document.getElementById("p-badge").value;
+      if (selectedBadge === "Custom") {
+        selectedBadge = document.getElementById("p-badge-custom").value.trim() || "New Arrival";
+      }
+
       const sizes = sizesRaw.split(",").map(s => s.trim()).filter(Boolean);
       const images = stagedImagesUrls.length > 0 ? stagedImagesUrls : ["assets/images/tulip-necklace-1.webp"];
 
@@ -364,70 +523,73 @@
         id,
         name,
         category,
-        material: material || "316L Grade Stainless Steel • 18K Gold Plated",
+        material: material || "316L Grade Stainless Steel • Anti-Tarnish",
         sizes: sizes.length ? sizes : ["Standard"],
-        badge: "New Arrival",
+        badge: selectedBadge,
         description: description || "316L Grade Stainless Steel & Anti-Tarnish Jewellery.",
         images
       });
 
-      try {
-        saveProducts(current);
-        e.target.reset();
-        document.getElementById("upload-preview-row").innerHTML = "";
-        document.getElementById("upload-status").textContent = "Select images to automatically upload to ImgBB CDN.";
-        document.getElementById("upload-status").className = "text-[11px] text-gray-500 mt-1";
-        stagedImagesUrls = [];
-        renderAdminList();
-        alert(`Published "${name}" (${id}) to your showcase catalog!`);
-      } catch (err) {
-        alert("Browser storage limit reached. Please add your free ImgBB API key at the top of the portal so images are hosted on the cloud.");
-      }
+      saveProducts(current);
+      e.target.reset();
+      customBadgeWrapper.classList.add("hidden");
+      document.getElementById("upload-preview-row").innerHTML = "";
+      document.getElementById("upload-status").textContent = "Select 1 to 5 images. The first image becomes the primary cover photo.";
+      document.getElementById("upload-status").className = "text-[11px] text-gray-500 mt-1";
+      stagedImagesUrls = [];
+      renderAdminList();
+      alert(`Published! "${name}" (${selectedBadge}) is now live on the Showcase Catalog.`);
     });
 
-    // Render Inventory List
     function renderAdminList() {
-      const listEl = document.getElementById("admin-product-list");
+      const box = document.getElementById("admin-product-list");
       const countEl = document.getElementById("inventory-count");
-      const items = getProducts();
-      countEl.textContent = items.length;
+      const list = getProducts();
+      if (countEl) countEl.textContent = list.length;
 
-      listEl.innerHTML = items.map((item, idx) => {
-        const thumb = (item.images && item.images[0]) ? item.images[0] : "assets/images/tulip-necklace-1.webp";
+      box.innerHTML = list.map(item => {
+        const coverImg = (item.images && item.images.length) ? item.images[0] : "assets/images/logo.jpg";
         return `
-          <div class="flex items-center justify-between gap-4 p-3 rounded-xl border border-gray-200 hover:border-[#D4AF37] transition bg-[#FAF7F2]/50">
+          <div class="flex items-center justify-between p-3 rounded-xl border border-gray-200 bg-white hover:border-[#C5A059] transition">
             <div class="flex items-center gap-3 min-w-0">
-              <img src="${thumb}" alt="${item.name}" class="w-14 h-14 rounded-lg object-cover border border-gray-300 flex-shrink-0 bg-white" />
+              <img src="${coverImg}" class="w-12 h-12 rounded-lg object-cover border border-[#C5A059] flex-shrink-0" />
               <div class="min-w-0">
-                <div class="flex items-center gap-2">
-                  <span class="text-[10px] font-mono bg-[#4A0E17] text-[#D4AF37] px-2 py-0.5 rounded">${item.id}</span>
-                  <span class="text-[11px] font-semibold text-amber-800">${item.category}</span>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="text-[10px] font-mono bg-gray-100 px-1.5 py-0.5 rounded">#${item.id}</span>
+                  <span class="text-[10px] bg-[#4A1525] text-[#E6C88A] px-2 py-0.5 rounded-full font-semibold uppercase">${item.badge || 'New Arrival'}</span>
+                  <span class="text-[10px] text-[#C5A059] font-bold uppercase">${item.category}</span>
                 </div>
-                <h3 class="text-sm font-bold text-gray-900 truncate mt-0.5">${item.name}</h3>
-                <p class="text-[11px] text-gray-500 truncate">${item.material || ""}</p>
+                <h4 class="text-xs font-bold text-[#1E1B18] truncate mt-0.5">${item.name}</h4>
+                <p class="text-[10px] text-gray-500 truncate">${(item.images || []).length} Image(s) • Sizes: ${(item.sizes || []).join(", ")}</p>
               </div>
             </div>
-            <button onclick="deleteProduct(${idx})" class="text-xs text-red-600 hover:bg-red-50 px-3 py-1.5 rounded-lg font-semibold transition flex-shrink-0">
-              Delete
+            <button onclick="deleteProduct('${item.id}')" class="text-xs text-red-600 hover:bg-red-50 px-2.5 py-1.5 rounded-lg flex-shrink-0" title="Delete Product">
+              <i class="fas fa-trash"></i>
             </button>
           </div>
         `;
       }).join("");
     }
 
-    window.deleteProduct = function(index) {
-      const current = getProducts();
-      const removed = current.splice(index, 1);
-      saveProducts(current);
+    window.deleteProduct = function(id) {
+      const filtered = getProducts().filter(p => p.id !== id);
+      saveProducts(filtered);
       renderAdminList();
     };
 
-    document.getElementById("reset-catalog-btn").addEventListener("click", () => {
-      if (confirm("Reset local catalog additions back to default demo items?")) {
-        localStorage.removeItem(STORAGE_KEY);
+    window.resetDefaultCatalog = function() {
+      if (confirm("Reset catalog back to the 6 default demo items?")) {
+        localStorage.removeItem("disa_charms_products");
+        localStorage.removeItem("disa_charms_products_v1");
         renderAdminList();
       }
-    });
+    };
+
+    window.saveStorePhone = function() {
+      const val = document.getElementById("wa-phone-input").value;
+      setWhatsAppNumber(val);
+      alert("Store WhatsApp number updated to: " + getWhatsAppNumber());
+    };
   </script>
 </body>
 </html>
