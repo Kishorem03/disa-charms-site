@@ -222,7 +222,7 @@
               <h3 class="text-xl font-serif-luxury font-bold text-[#4A1525]">Current Showcase Items (<span id="inventory-count">0</span>)</h3>
               <p class="text-[11px] text-gray-500">Synced directly with your Home & Catalog pages</p>
             </div>
-            <button onclick="resetDefaultCatalog()" class="text-[11px] text-gray-500 hover:text-red-600 underline">Reset Default Demo Items</button>
+            <button onclick="renderAdminListClean()" class="text-[11px] text-gray-500 hover:text-red-600 underline">Reset Default Demo Items</button>
           </div>
           <div id="admin-product-list" class="space-y-3 max-h-[560px] overflow-y-auto pr-1"></div>
         </div>
@@ -278,8 +278,8 @@
           <li><a href="index.html" class="hover:text-white">Home Showcase</a></li>
           <li><a href="catalog.html" class="hover:text-white">Full Product Catalog</a></li>
           <li><a href="about.html" class="hover:text-white">Why 316L Anti-Tarnish?</a></li>
-          <li><a href="contact.html" class="hover:text-white">Showroom Location</a></li>
-          <li><a href="admin.html" class="hover:text-white">Client Image Upload Portal</a></li>
+          <li><a href="contact.html" class="hover:text-white">Visit Erode Store</a></li>
+          <li><a href="admin.html" class="hover:text-white">Client Portal</a></li>
         </ul>
       </div>
 
@@ -309,44 +309,12 @@
     <span class="text-xs font-bold tracking-wide">Chat on WhatsApp</span>
   </a>
 
-  <!-- Shared App Engine (Uses exact "disa_charms_products" key used by catalog.html & index.html) -->
+  <!-- Shared App Engine -->
   <script src="assets/js/app.js"></script>
   <script>
-    // ============================================================================
-    // STEP 1: PASTE YOUR IMGBB API KEY BELOW (Or enter it directly in the top bar)
-    // Get your free key at: https://api.imgbb.com/
-    // ============================================================================
-    let IMGBB_API_KEY = localStorage.getItem("disa_imgbb_api_key") || "392f1a5408439784428aa1a376e64e56";
-
+    let IMGBB_API_KEY = localStorage.getItem("disa_imgbb_api_key") || "YOUR_IMGBB_API_KEY_HERE";
     let stagedImagesUrls = [];
     let isUploading = false;
-
-    // Auto-migrate any items accidentally saved to "disa_charms_products_v1" into "disa_charms_products"
-    (function migrateLegacyStorage() {
-      try {
-        const v1Raw = localStorage.getItem("disa_charms_products_v1");
-        if (v1Raw) {
-          const v1List = JSON.parse(v1Raw);
-          if (Array.isArray(v1List) && v1List.length > 0) {
-            const current = getProducts();
-            const existingIds = new Set(current.map(p => p.id));
-            let added = false;
-            v1List.forEach(item => {
-              if (item && item.id && !existingIds.has(item.id)) {
-                current.unshift(item);
-                added = true;
-              }
-            });
-            if (added) {
-              saveProducts(current);
-            }
-          }
-          localStorage.removeItem("disa_charms_products_v1");
-        }
-      } catch (e) {
-        console.warn("Storage migration skipped:", e);
-      }
-    })();
 
     // Initialize API Key Input Field
     const apiKeyInput = document.getElementById("imgbb-key-input");
@@ -362,7 +330,7 @@
       }
       IMGBB_API_KEY = val;
       localStorage.setItem("disa_imgbb_api_key", val);
-      alert("ImgBB API Key saved! Your uploaded photos will now be hosted on ImgBB CDN.");
+      alert("ImgBB API Key saved!");
     });
 
     // Show/Hide Custom Badge Text Input
@@ -378,25 +346,25 @@
     });
 
     // Login & Session Handling
-    function openDashboard() {
+    async function openDashboard() {
       document.getElementById("admin-login-box").classList.add("hidden");
       document.getElementById("admin-dashboard-box").classList.remove("hidden");
       document.getElementById("wa-phone-input").value = getWhatsAppNumber();
-      renderAdminList();
+      await renderAdminList();
     }
 
     if (sessionStorage.getItem("disa_admin_logged_in") === "true") {
       openDashboard();
     }
 
-    document.getElementById("login-form").addEventListener("submit", (e) => {
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const u = document.getElementById("admin-user").value.trim();
       const p = document.getElementById("admin-pass").value.trim();
       if (u === "disa.charms" && p === "disa2025") {
         sessionStorage.setItem("disa_admin_logged_in", "true");
         document.getElementById("login-error").classList.add("hidden");
-        openDashboard();
+        await openDashboard();
       } else {
         document.getElementById("login-error").classList.remove("hidden");
       }
@@ -407,7 +375,7 @@
       location.reload();
     });
 
-    // Helper: Fallback client-side compression if user hasn't set an ImgBB key yet
+    // Fallback compression if ImgBB fails
     function compressImageFallback(file) {
       return new Promise((resolve) => {
         const reader = new FileReader();
@@ -429,7 +397,7 @@
       });
     }
 
-    // Multi-Image Upload Listener (ImgBB + Automatic Compression Fallback)
+    // Image Upload Listener
     document.getElementById("p-images").addEventListener("change", async (e) => {
       const files = Array.from(e.target.files).slice(0, 5);
       const previewRow = document.getElementById("upload-preview-row");
@@ -466,12 +434,10 @@
             } else if (data && data.success && data.data && data.data.url) {
               stagedImagesUrls.push(data.data.url);
             } else {
-              console.warn("ImgBB fallback to local compression:", data);
               const compressed = await compressImageFallback(file);
               stagedImagesUrls.push(compressed);
             }
           } catch (err) {
-            console.error("Network upload error, using compressed fallback:", err);
             const compressed = await compressImageFallback(file);
             stagedImagesUrls.push(compressed);
           }
@@ -495,8 +461,8 @@
       publishBtn.classList.remove("opacity-50", "cursor-not-allowed");
     });
 
-    // Form Submit Handler
-    document.getElementById("add-product-form").addEventListener("submit", (e) => {
+    // Form Submit Handler (Fixed with await getProducts())
+    document.getElementById("add-product-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       if (isUploading) {
         alert("Please wait a moment for your images to finish uploading.");
@@ -518,7 +484,11 @@
       const sizes = sizesRaw.split(",").map(s => s.trim()).filter(Boolean);
       const images = stagedImagesUrls.length > 0 ? stagedImagesUrls : ["assets/images/tulip-necklace-1.webp"];
 
-      const current = getProducts();
+      let current = await getProducts();
+      if (!Array.isArray(current)) {
+        current = [];
+      }
+
       current.unshift({
         id,
         name,
@@ -530,21 +500,22 @@
         images
       });
 
-      saveProducts(current);
+      await saveProducts(current);
+
       e.target.reset();
-      customBadgeWrapper.classList.add("hidden");
+      if (customBadgeWrapper) customBadgeWrapper.classList.add("hidden");
       document.getElementById("upload-preview-row").innerHTML = "";
       document.getElementById("upload-status").textContent = "Select 1 to 5 images. The first image becomes the primary cover photo.";
       document.getElementById("upload-status").className = "text-[11px] text-gray-500 mt-1";
       stagedImagesUrls = [];
-      renderAdminList();
-      alert(`Published! "${name}" (${selectedBadge}) is now live on the Showcase Catalog.`);
+      await renderAdminList();
+      alert(`Published! "${name}" (${selectedBadge}) is now live on the showcase catalog.`);
     });
 
-    function renderAdminList() {
+    async function renderAdminList() {
       const box = document.getElementById("admin-product-list");
       const countEl = document.getElementById("inventory-count");
-      const list = getProducts();
+      const list = await getProducts();
       if (countEl) countEl.textContent = list.length;
 
       box.innerHTML = list.map(item => {
@@ -571,17 +542,18 @@
       }).join("");
     }
 
-    window.deleteProduct = function(id) {
-      const filtered = getProducts().filter(p => p.id !== id);
-      saveProducts(filtered);
-      renderAdminList();
+    window.deleteProduct = async function(id) {
+      const current = await getProducts();
+      const filtered = current.filter(p => p.id !== id);
+      await saveProducts(filtered);
+      await renderAdminList();
     };
 
-    window.resetDefaultCatalog = function() {
-      if (confirm("Reset catalog back to the 6 default demo items?")) {
+    window.renderAdminListClean = async function() {
+      if (confirm("Reset catalog back to the default demo items?")) {
         localStorage.removeItem("disa_charms_products");
-        localStorage.removeItem("disa_charms_products_v1");
-        renderAdminList();
+        await saveProducts(DEFAULT_PRODUCTS);
+        await renderAdminList();
       }
     };
 
